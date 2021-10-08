@@ -1,0 +1,15 @@
+name: C/C++ CI
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make -j16
+    - run: o//examples/hello.com
+    - run: set -o pipefail; find o -name \*.com | xargs ls -rShal | less
