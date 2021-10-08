@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: make
-      run: docker run -rm alpine:make make -j16
+      run: docker run --rm alpine:make make -j16
     - run: o//examples/hello.com
     - run: set -o pipefail; find o -name \*.com | xargs ls -rShal | less
