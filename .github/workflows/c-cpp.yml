@@ -1,0 +1,17 @@
+name: C/C++ CI
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: docker build -t cosmopolitan .
+    - run: docker run --rm -v$PWD:/workdir cosmopolitan sh -c 'cd workdir; make -j1 -O all'
+    - run: o//examples/hello.com
+    - run: set -o pipefail; find o -name \*.com | xargs ls -rShal | less
