@@ -14,7 +14,15 @@ jobs:
     - run: |
         ls "$PWD"
         ls "$PWD"/build
-    - run: make -j1 -O all
+
+    - run: ls /proc/sys/fs/binfmt_misc || true
+    - run: sudo apt-get update -y
+    - run: sudo apt-get install -y binfmt-support
+    - run: ls /proc/sys/fs/binfmt_misc || true
+    - run: sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+    - run: ls /proc/sys/fs/binfmt_misc || true
+    - run: cat /proc/sys/fs/binfmt_misc/status
+
     - run: docker build -t cosmopolitan .
     - run: docker run --rm -v$PWD:/workdir cosmopolitan ls workdir/build
     # https://www.kernel.org/doc/html/latest/admin-guide/binfmt-misc.html
