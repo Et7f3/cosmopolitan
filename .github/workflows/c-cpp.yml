@@ -16,6 +16,7 @@ jobs:
         ls "$PWD"/build
     - run: docker build -t cosmopolitan .
     - run: docker run --rm -v$PWD:/workdir cosmopolitan ls workdir/build
-    - run: docker run --rm -v$PWD:/workdir cosmopolitan sh -c "echo ':APE:M::MZqFpD::/bin/sh:' >/proc/sys/fs/binfmt_misc/register; make -C workdir-j1 -O all"
+    # https://www.kernel.org/doc/html/latest/admin-guide/binfmt-misc.html
+    - run: docker run --rm -v$PWD:/workdir cosmopolitan sh -c "mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc; echo ':APE:M::MZqFpD::/bin/sh:' >/proc/sys/fs/binfmt_misc/register; make -C workdir-j1 -O all"
     - run: o//examples/hello.com
     - run: set -o pipefail; find o -name \*.com | xargs ls -rShal | less
