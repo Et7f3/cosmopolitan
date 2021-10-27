@@ -14,12 +14,12 @@ jobs:
     - run: |
         ls "$PWD"
         ls "$PWD"/build
+    - run: sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc || true
 
     - run: ls /proc/sys/fs/binfmt_misc || true
     - run: sudo apt-get update -y
     - run: sudo apt-get install -y binfmt-support
     - run: ls /proc/sys/fs/binfmt_misc || true
-    - run: sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
     - run: ls /proc/sys/fs/binfmt_misc || true
     - run: cat /proc/sys/fs/binfmt_misc/status
 
