@@ -12,8 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-      ls "$PWD"
-      ls "$PWD"/build
+        ls "$PWD"
+        ls "$PWD"/build
     - run: docker build -t cosmopolitan .
     - run: docker run --rm -v$PWD:/workdir cosmopolitan sh -c 'cd workdir; make -j1 -O all'
     - run: o//examples/hello.com
