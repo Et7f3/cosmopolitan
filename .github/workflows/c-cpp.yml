@@ -14,7 +14,7 @@ jobs:
     - run: |
         ls "$PWD"
         ls "$PWD"/build
-    - run: echo ':APE:M::MZqFpD::/bin/sh:' >/proc/sys/fs/binfmt_misc/register
+    - run: sudo echo ':APE:M::MZqFpD::/bin/sh:' >/proc/sys/fs/binfmt_misc/register
     - run: docker build -t cosmopolitan .
     - run: docker run --rm -v$PWD:/workdir cosmopolitan ls build
     - run: docker run --rm -v$PWD:/workdir cosmopolitan make -C workdir-j1 -O all
