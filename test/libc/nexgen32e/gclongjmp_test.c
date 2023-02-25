@@ -97,7 +97,10 @@ TEST(gc, torture) {
   for (i = 0; i < n; ++i) EXPECT_SYS(0, 0, _join(t + i));
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Winfinite-recursion"
 void crawl2(jmp_buf jb, const char *path) {
+#pragma GCC diagnostic pop
   const char *dir;
   if (!strcmp(path, "/") || !strcmp(path, ".")) _gclongjmp(jb, 1);
   crawl2(jb, _gc(xdirname(path)));
