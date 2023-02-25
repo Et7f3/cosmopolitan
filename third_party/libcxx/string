@@ -723,11 +723,8 @@ private:
     struct __short
     {
         value_type __data_[__min_cap];
-        struct
-            : __padding<value_type>
-        {
-            unsigned char __size_;
-        };
+        unsigned char __padding[sizeof(value_type) - 1];
+        unsigned char __size_;
     };
 
 #else
