@@ -26,7 +26,7 @@
 #define atomic_int_fast16_t   _Atomic(__INT_FAST16_TYPE__)
 #define atomic_uint_fast16_t  _Atomic(__UINT_FAST16_TYPE__)
 #define atomic_int_fast32_t   _Atomic(__INT_FAST32_TYPE__)
-#define atomic_uint_fast32_t  _Atomic(__UINT_FAST32_TYPE__)
+#define atomic_uint_fast32_t  _Atomic(__UINT32_TYPE__)
 #define atomic_int_fast64_t   _Atomic(__INT_FAST64_TYPE__)
 #define atomic_uint_fast64_t  _Atomic(__UINT_FAST64_TYPE__)
 #define atomic_int_least8_t   _Atomic(__INT_LEAST8_TYPE__)
