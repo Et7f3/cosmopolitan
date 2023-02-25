@@ -44,7 +44,7 @@ COSMOPOLITAN_C_START_
     } else if (IsLinux()) {                                               \
       asm volatile(ZFLAG_ASM("lsl\t%2,%1")                                \
                    : ZFLAG_CONSTRAINT(Ok), "=r"(Msr)                      \
-                   : "r"(0x7b)                                            \
+                   : "r"((long)0x7b)                                      \
                    : "memory");                                           \
     }                                                                     \
     if (!Ok && X86_HAVE(RDTSCP)) {                                        \
