@@ -812,7 +812,7 @@ typedef struct {
 
 #if !defined(__STRICT_ANSI__) && !defined(__APPLE__)
 #define YOINK(SYMBOL) \
-  asm(".section .yoink\n\tnopl\t%a0\n\t.previous" : : "X"(SYMBOL))
+  asm(".section .yoink\n\tnop\t\n\t.previous" : : "X"(SYMBOL))
 #else
 #define YOINK(SYMBOL) (void)0
 #endif
