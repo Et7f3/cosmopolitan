@@ -7,6 +7,9 @@ LIBC_TINYMATH_ARTIFACTS += LIBC_TINYMATH_A
 LIBC_TINYMATH = $(LIBC_TINYMATH_A_DEPS) $(LIBC_TINYMATH_A)
 LIBC_TINYMATH_A = o/$(MODE)/libc/tinymath/tinymath.a
 LIBC_TINYMATH_A_FILES := $(wildcard libc/tinymath/*)
+ifneq  ($(MODE), tiny)
+LIBC_TINYMATH_A_FILES := $(filter-out $(wildcard libc/tinymath/*-tiny.S), $(LIBC_TINYMATH_A_FILES))
+endif
 LIBC_TINYMATH_A_HDRS = $(filter %.h,$(LIBC_TINYMATH_A_FILES))
 LIBC_TINYMATH_A_SRCS_A = $(filter %.s,$(LIBC_TINYMATH_A_FILES))
 LIBC_TINYMATH_A_SRCS_S = $(filter %.S,$(LIBC_TINYMATH_A_FILES))
