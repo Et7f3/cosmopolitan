@@ -37,6 +37,7 @@
           PREFIX = "${self.packages.${system}.sysroot}/bin/${
               nixpkgsForCross.${system}.stdenv.cc.targetPrefix
             }";
+          nativeCheckInputs = with nixpkgsFor.${system}; [ tzdata ];
         };
       });
 
