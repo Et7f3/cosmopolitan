@@ -131,9 +131,17 @@ TRADITIONAL =								\
 	-Wno-return-type						\
 	-Wno-pointer-sign
 
+# libc/intrin/isdebuggerpresent.c
+# libc/tinymath/rempio2large.c
 DEFAULT_CCFLAGS =							\
 	-Wall								\
 	-Werror								\
+    -Wno-error=array-bounds \
+    -Wno-error=maybe-uninitialized \
+    -Wno-error=use-after-free \
+    -Wno-error=old-style-definition \
+    -Wno-error=stringop-overread \
+    -Wno-error=array-parameter= \
 	-fdebug-prefix-map='$(PWD)'=					\
 	-frecord-gcc-switches
 
