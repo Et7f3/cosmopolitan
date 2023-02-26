@@ -33,7 +33,7 @@ static textwindows inline bool HasWorkingConsole(void) {
 
 static noubsan void RaiseSigFpe(void) {
   volatile int x = 0;
-  x = 1 / x;
+  x = -1 / x;
 }
 
 /**
