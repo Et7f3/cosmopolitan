@@ -254,7 +254,7 @@ ttunspecified(struct state const *sp, int i)
 	return memcmp(abbr, UNSPEC, sizeof UNSPEC) == 0;
 }
 
-forceinline int_fast32_t detzcode(const char *const codep) {
+forceinline int detzcode(const char *const codep) {
 	return READ32BE(codep);
 }
 
