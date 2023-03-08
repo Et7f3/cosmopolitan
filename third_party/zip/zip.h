@@ -610,7 +610,7 @@ extern int bflag;
 void zipmessage_nl OF((ZCONST char *, int));
 void zipmessage OF((ZCONST char *, ZCONST char *));
 void zipwarn OF((ZCONST char *, ZCONST char *));
-void ziperr OF((int, ZCONST char *));
+wontreturn void ziperr OF((int, ZCONST char *));
 #ifdef UTIL
 #  define error(msg)    ziperr(ZE_LOGIC, msg)
 #else

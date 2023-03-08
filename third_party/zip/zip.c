@@ -368,7 +368,7 @@ int e;                  /* exit code */
   return e;
 }
 
-void ziperr(c, h)
+wontreturn void ziperr(c, h)
 int c;                  /* error code from the ZE_ class */
 ZCONST char *h;         /* message about how it happened */
 /* Issue a message for the error, clean up files and memory, and exit. */

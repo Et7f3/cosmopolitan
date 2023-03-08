@@ -2344,7 +2344,7 @@ char *get_in_split_path(base_path, disk_number)
   int base_len = 0;
   int path_len = 0;
   ulg num = disk_number + 1;
-  char ext[6];
+  char ext[7];
 #ifdef VMS
   int vers_len;                         /* File version length. */
   char *vers_ptr;                       /* File version string. */
@@ -2415,7 +2415,7 @@ char *get_out_split_path(base_path, disk_number)
   int base_len = 0;
   int path_len = 0;
   ulg num = disk_number + 1;
-  char ext[6];
+  char ext[7];
 #ifdef VMS
   int vers_len;                         /* File version length. */
   char *vers_ptr;                       /* File version string. */
